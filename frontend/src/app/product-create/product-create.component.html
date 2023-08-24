@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit()" class="row">
+    <div class="col-4">
+        <label for="name">Name</label>
+        <input name="name" type="text" placeholder="product name"  [(ngModel)]="product.name" class="form-control" >
+    </div>
+    <div class="col-4">
+        <label for="name">Description</label>
+        <input name="desc" type="text" placeholder="product desc" [(ngModel)]="product.desc" class="form-control">
+    </div>
+    <div class="col-4">
+        <label for="name">Price </label>
+        <input name="price" type="number" placeholder="product price" [(ngModel)]="product.price" class="form-control">
+    </div>
+    <div class="col-12 mt-3 text-center">
+         <input type="submit" value="Create" class="btn btn-secondary" >
+    </div> 
+</form>

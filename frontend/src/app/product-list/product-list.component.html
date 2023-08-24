@@ -1,0 +1,56 @@
+
+<ng-template #editModal let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Edit Product</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form (ngSubmit)="onSubmit()" class="row" *ngIf="product?.id;else loadingTpl;">
+            <div class="col-12 mt-2">
+                <label for="name">Name</label>
+                <input name="name" type="text" placeholder="product name"  [(ngModel)]="product.name" class="form-control" >
+            </div>
+            <div class="col-12 mt-2" >
+                <label for="name">Description</label>
+                <input name="desc" type="text" placeholder="product desc" [(ngModel)]="product.desc" class="form-control">
+            </div>
+            <div class="col-12 mt-2">
+                <label for="name">Price</label>
+                <input name="price" type="text" placeholder="product price" [(ngModel)]="product.price" class="form-control">
+            </div>
+            <div class="col-12 mt-3 text-center">
+                 <input type="submit" value="Update" class="btn btn-secondary" >
+            </div> 
+        </form>
+        <ng-template #loadingTpl>
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+	</div>
+</ng-template>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <th class="p-3">Name</th>
+        <th class="p-3">Desc</th>
+        <th class="p-3">Price</th>
+        <th class="p-3">Action</th>
+    </thead>
+    <tr *ngFor="let product of products"  >
+        <td class="p-3">{{product.name}}</td>
+        <td class="p-3"> {{product.desc}}</td>
+        <td class="p-3">{{product.price}}</td>
+        <td class="p-3">
+            <button class="btn" (click)="editProduct(product,editModal)"><i class="fa fa-pencil"></i></button>
+            <button class="btn" (click)="deleteProduct(product)"><i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+</table>
+
+

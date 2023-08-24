@@ -1,0 +1,6 @@
+<div class="container pt-5">
+  <h4 class="font-weight-bold py-3 px-3 bg-secondary text-white mb-3">Angular CRUD</h4>
+  <app-product-create (newItemCreated)="productsListComponent.loadProducts()"></app-product-create>
+  <app-product-list #productsListComponent></app-product-list>
+</div>
+
