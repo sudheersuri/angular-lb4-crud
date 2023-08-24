@@ -27,5 +27,7 @@ Before you begin, ensure you have met the following requirements:
 2) cd backend -> npm install or yarn
 3) cd frontend -> npm install or yarn
 5) cd backend -> npm run build -> npm run migrate
+6) cd frontend -> yarn start
+7) cd backend -> yarn start 
 
 
